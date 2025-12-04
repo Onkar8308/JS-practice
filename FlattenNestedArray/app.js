@@ -18,4 +18,4 @@ function flattenArray(arr) {
 
 console.log(flattenArray(arr1));
 
-console.log('checked');
+console.log('checked for practice');
