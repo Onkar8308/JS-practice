@@ -1,19 +1,18 @@
-const arr1 = [
-  [1, 2],
-  [3, [4]],
-];
+const arr = [[1, 3], [[2], [3, 4]], 6];
+console.log(arr);
 
-function flattenArray(arr) {
-  let res = [];
-
-  arr.forEach((item) => {
-    if (Array.isArray(item)) {
-      res = res.concat(flattenArray(item));
-    } else {
-      res.push(item);
+function flattenArray(arr){
+  var newArr = [];
+  arr.forEach(item => {
+    if(Array.isArray(item)){
+      newArr = newArr.concat(flattenArray(item));
     }
+    else{
+      newArr.push(item);
+    }
+    
   });
-  return res;
+  return newArr;
 }
 
-console.log(flattenArray(arr1));
+console.log(flattenArray(arr));
