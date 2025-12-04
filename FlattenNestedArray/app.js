@@ -1,18 +1,21 @@
-const arr = [[1, 3], [[2], [3, 4]], 6];
-console.log(arr);
+const arr1 = [
+  [1, 2],
+  [3, [4]],
+];
 
-function flattenArray(arr){
-  var newArr = [];
-  arr.forEach(item => {
-    if(Array.isArray(item)){
-      newArr = newArr.concat(flattenArray(item));
+function flattenArray(arr) {
+  let res = [];
+
+  arr.forEach((item) => {
+    if (Array.isArray(item)) {
+      res = res.concat(flattenArray(item));
+    } else {
+      res.push(item);
     }
-    else{
-      newArr.push(item);
-    }
-    
   });
-  return newArr;
+  return res;
 }
 
-console.log(flattenArray(arr));
+console.log(flattenArray(arr1));
+
+console.log('checked for practice');
